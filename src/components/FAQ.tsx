@@ -45,7 +45,7 @@ export function FAQ() {
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15px] font-semibold text-fg transition-colors hover:text-bright [&::-webkit-details-marker]:hidden">
               {f.q}
               <span
-                className="shrink-0 font-mono text-lg text-muted transition-transform group-open:rotate-45 group-open:text-green"
+                className="shrink-0 font-mono text-lg text-muted transition-transform group-open:rotate-45 group-open:text-gold"
                 aria-hidden
               >
                 +

@@ -80,7 +80,7 @@ export function HowItWorks() {
         {STEPS.map((s, i) => (
           <li key={s.n} className="relative bg-card p-5">
             <div className="flex items-center gap-2">
-              <span className="flex size-7 items-center justify-center rounded-full border border-green-line bg-green-bg font-mono text-[11px] font-bold text-green">
+              <span className="flex size-7 items-center justify-center rounded-full border border-gold-line bg-gold-bg font-mono text-[11px] font-bold text-gold">
                 {s.n}
               </span>
               <span className="text-[15px] font-bold text-bright">{s.title}</span>
@@ -90,7 +90,7 @@ export function HowItWorks() {
                 </span>
               )}
             </div>
-            <p className="mt-3 font-mono text-[11px] text-green">{s.tag}</p>
+            <p className="mt-3 font-mono text-[11px] text-gold">{s.tag}</p>
             <p className="mt-2 text-[13px] leading-relaxed text-muted">{s.body}</p>
           </li>
         ))}

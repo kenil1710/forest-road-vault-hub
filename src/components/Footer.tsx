@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LINKS, SNAPSHOT } from "@/lib/data";
 import { CommunityBadge, ExternalLink } from "./ui";
 
@@ -18,12 +19,16 @@ export function Footer() {
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           <div className="max-w-xl">
             <div className="flex items-center gap-2">
-              <span className="text-lg" aria-hidden>
-                🌲
+              <Image src="/logo.png" alt="" width={30} height={26} className="logo-white" />
+              <span className="text-[13px] font-semibold tracking-[0.08em] text-bright uppercase">
+                Forest Road Vault
               </span>
-              <span className="text-[15px] font-bold text-bright">Forest Road Vault</span>
               <CommunityBadge />
             </div>
+            <p className="mt-6 text-[15px] font-light tracking-[0.02em] text-fg">
+              Building the next era of credit.
+            </p>
+            <span className="gold-rule mt-4" aria-hidden />
             <p className="mt-4 text-[13px] leading-relaxed text-muted">
               <strong className="font-semibold text-sub">
                 Community Tool — Not affiliated with Forest Road Asset Management.
@@ -36,7 +41,7 @@ export function Footer() {
           </div>
           <nav aria-label="External links" className="grid grid-cols-2 gap-x-10 gap-y-2 text-[13px] sm:grid-cols-3 lg:grid-cols-2">
             {FOOTER_LINKS.map((l) => (
-              <ExternalLink key={l.href} href={l.href} className="text-sub transition-colors hover:text-green">
+              <ExternalLink key={l.href} href={l.href} className="text-sub transition-colors hover:text-gold">
                 {l.label} ↗
               </ExternalLink>
             ))}

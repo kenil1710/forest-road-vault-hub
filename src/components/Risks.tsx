@@ -72,7 +72,7 @@ export function Risks() {
             className="rounded-xl border border-line bg-card p-5 transition-colors hover:border-line-2"
           >
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-[15px] font-bold text-bright">{r.title}</h3>
+              <h3 className="text-[15px] font-bold tracking-[0.01em] text-bright">{r.title}</h3>
               <span
                 className={`rounded-full border px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.08em] uppercase ${levelStyles[r.level]}`}
               >

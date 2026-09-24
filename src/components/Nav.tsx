@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { LINKS } from "@/lib/data";
 import { CommunityBadge } from "./ui";
@@ -37,10 +38,8 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b border-line bg-navy/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4 sm:px-6">
         <a href="#top" className="flex shrink-0 items-center gap-2">
-          <span className="text-lg" aria-hidden>
-            🌲
-          </span>
-          <span className="text-[14px] font-bold tracking-tight text-bright">
+          <Image src="/logo.png" alt="" width={26} height={22} className="logo-white" priority />
+          <span className="text-[13px] font-semibold tracking-[0.08em] text-bright uppercase">
             Forest Road Vault
           </span>
           <span className="hidden sm:inline-flex">
@@ -56,7 +55,7 @@ export function Nav() {
               key={n.id}
               href={`#${n.id}`}
               className={`rounded-md px-2.5 py-1.5 text-[13px] whitespace-nowrap transition-colors ${
-                active === n.id ? "bg-card-2 text-bright" : "text-muted hover:text-fg"
+                active === n.id ? "bg-card-2 text-bright" : "text-muted hover:text-gold"
               }`}
             >
               {n.label}

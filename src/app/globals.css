@@ -18,6 +18,9 @@
   --color-green: #34d399;
   --color-green-bg: rgba(52, 211, 153, 0.07);
   --color-green-line: rgba(52, 211, 153, 0.18);
+  --color-gold: #c4a55a;
+  --color-gold-bg: rgba(196, 165, 90, 0.08);
+  --color-gold-line: rgba(196, 165, 90, 0.18);
   --color-amber: #fbbf24;
   --color-blue: #60a5fa;
   --color-red: #f87171;
@@ -42,7 +45,44 @@ body {
 }
 
 ::selection {
-  background: rgba(52, 211, 153, 0.25);
+  background: rgba(196, 165, 90, 0.3);
+}
+
+/* The logo PNG is navy on transparent; this renders it white on dark backgrounds. */
+.logo-white {
+  filter: brightness(0) invert(1);
+}
+
+/* Short gold rule used under labels and between brand elements. */
+.gold-rule {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* Slash marks in the corners of featured text, after the brand's social graphics. */
+.slash-frame {
+  position: relative;
+  padding: 0.25em 1.25em;
+}
+.slash-frame::before,
+.slash-frame::after {
+  position: absolute;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-gold);
+  opacity: 0.8;
+}
+.slash-frame::before {
+  content: "/";
+  top: -0.35em;
+  left: 0;
+}
+.slash-frame::after {
+  content: "/";
+  right: 0;
+  bottom: -0.35em;
 }
 
 /* Subtle fade-in on scroll. Pure CSS, so content is always visible without JS

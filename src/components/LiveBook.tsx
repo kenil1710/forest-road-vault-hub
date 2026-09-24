@@ -22,7 +22,7 @@ function Addr({ children, full }: { children: string; full?: string }) {
   return (
     <ExternalLink
       href={etherscan(full)}
-      className="font-mono text-[11px] text-muted underline decoration-line-2 underline-offset-2 transition-colors hover:text-green"
+      className="font-mono text-[11px] text-muted underline decoration-line-2 underline-offset-2 transition-colors hover:text-gold"
     >
       {children} ↗
     </ExternalLink>
@@ -43,7 +43,7 @@ function Panel({
   return (
     <Card className="p-5">
       <div className="mb-2 flex items-baseline justify-between gap-3">
-        <h3 className="text-[14px] font-bold text-bright">{title}</h3>
+        <h3 className="text-[14px] font-bold tracking-[0.01em] text-bright">{title}</h3>
         {address && <Addr full={fullAddress}>{address}</Addr>}
       </div>
       <dl>{children}</dl>
@@ -149,7 +149,7 @@ export function LiveBook() {
       {/* Loss cascade */}
       <div className="reveal mt-12">
         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="text-xl font-extrabold tracking-[-0.02em] text-bright">Loss cascade</h3>
+          <h3 className="text-xl font-extrabold tracking-[-0.01em] text-bright">Loss cascade</h3>
           <p className="text-[12px] text-muted">
             Fixed order, written into the contract. Non-invertible. Never pausable.
           </p>
@@ -218,7 +218,7 @@ export function LiveBook() {
       <div className="reveal mt-4 grid gap-4 lg:grid-cols-2">
         <Card className="p-5">
           <div className="mb-3 flex items-baseline justify-between gap-3">
-            <h3 className="text-[14px] font-bold text-bright">Protocol revenue</h3>
+            <h3 className="text-[14px] font-bold tracking-[0.01em] text-bright">Protocol revenue</h3>
             <Addr>{REVENUE.address}</Addr>
           </div>
           <CardLabel>Revenue since deployment</CardLabel>
@@ -254,7 +254,7 @@ export function LiveBook() {
         </Card>
 
         <Card className="p-5">
-          <h3 className="mb-3 text-[14px] font-bold text-bright">Fee schedule</h3>
+          <h3 className="mb-3 text-[14px] font-bold tracking-[0.01em] text-bright">Fee schedule</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-[13px]">
               <thead>

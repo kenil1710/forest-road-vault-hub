@@ -24,7 +24,7 @@ export function Safety() {
 
       {/* Invariants */}
       <div className="reveal mt-12">
-        <h3 className="mb-4 text-xl font-extrabold tracking-[-0.02em] text-bright">
+        <h3 className="mb-4 text-xl font-extrabold tracking-[-0.01em] text-bright">
           Nine core invariants
         </h3>
         <div className="overflow-hidden rounded-xl border border-line">
@@ -40,7 +40,7 @@ export function Safety() {
             <tbody className="bg-card">
               {INVARIANTS.map((inv, i) => (
                 <tr key={inv.name} className="border-t border-line align-top">
-                  <td className="px-4 py-3 font-mono text-green">{i + 1}</td>
+                  <td className="px-4 py-3 font-mono text-gold">{i + 1}</td>
                   <td className="px-4 py-3">
                     <p className="font-semibold text-bright">{inv.name}</p>
                     <p className="mt-1 text-[12px] text-muted sm:hidden">{inv.rule}</p>
@@ -60,7 +60,7 @@ export function Safety() {
       <div className="reveal mt-12 grid gap-4 lg:grid-cols-2">
         {/* Governance */}
         <Card className="p-5 sm:p-6" hover={false}>
-          <h3 className="text-[15px] font-bold text-bright">Governance & roles</h3>
+          <h3 className="text-[15px] font-bold tracking-[0.01em] text-bright">Governance & roles</h3>
           <p className="mt-1 text-[13px] text-muted">
             Bootstrap administration has been surrendered to a timelock. The role-admin graph is flat —
             no role can grant itself — and it&apos;s validated live by{" "}
@@ -80,12 +80,12 @@ export function Safety() {
 
         {/* Reviews */}
         <Card className="p-5 sm:p-6" hover={false}>
-          <h3 className="text-[15px] font-bold text-bright">Review history</h3>
+          <h3 className="text-[15px] font-bold tracking-[0.01em] text-bright">Review history</h3>
           <ol className="relative mt-4 ml-1.5 border-l border-line-2">
             {REVIEWS.map((r, i) => (
               <li key={i} className="relative pb-5 pl-5 last:pb-0">
-                <span className="absolute top-1.5 -left-[5px] size-2.5 rounded-full border-2 border-navy bg-green" />
-                <p className="font-mono text-[11px] text-green">{r.date}, 2026</p>
+                <span className="absolute top-1.5 -left-[5px] size-2.5 rounded-full border-2 border-navy bg-gold" />
+                <p className="font-mono text-[11px] text-gold">{r.date}, 2026</p>
                 <p className="mt-0.5 text-[13px] font-semibold text-fg">{r.title}</p>
                 <p className="text-[12px] text-muted">{r.detail}</p>
               </li>
@@ -105,7 +105,7 @@ export function Safety() {
       {/* Residuals */}
       <Card className="reveal mt-4 p-5 sm:p-6" hover={false}>
         <div className="flex flex-wrap items-center gap-2">
-          <h3 className="text-[15px] font-bold text-bright">Accepted residuals</h3>
+          <h3 className="text-[15px] font-bold tracking-[0.01em] text-bright">Accepted residuals</h3>
           <Chip tone="amber">Not yet done</Chip>
         </div>
         <p className="mt-1 text-[13px] text-muted">

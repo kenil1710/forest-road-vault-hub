@@ -62,7 +62,7 @@ export function Sectors() {
                 {s.relatedParty && <Chip tone="amber">Related party</Chip>}
               </div>
             </div>
-            <h3 className="mt-5 text-lg font-bold tracking-tight text-bright">{s.name}</h3>
+            <h3 className="mt-5 text-lg font-bold tracking-[0.01em] text-bright">{s.name}</h3>
 
             <dl className="mt-4 space-y-3 text-[13px]">
               <div>

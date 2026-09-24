@@ -49,9 +49,8 @@ export function Section({
     <section id={id} className="border-t border-line py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="reveal mb-10 max-w-2xl">
-          <p className="mb-3 font-mono text-[11px] font-medium tracking-[0.18em] text-green uppercase">
-            {label}
-          </p>
+          <p className="text-[11px] font-semibold tracking-[0.12em] text-gold uppercase">{label}</p>
+          <span className="gold-rule mt-3 mb-5" aria-hidden />
           <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-bright sm:text-4xl">
             {title}
           </h2>
@@ -74,7 +73,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-line bg-card ${hover ? "transition-colors hover:border-green-line" : ""} ${className}`}
+      className={`rounded-xl border border-line bg-card ${hover ? "transition-colors hover:border-gold-line" : ""} ${className}`}
     >
       {children}
     </div>
