@@ -20,6 +20,10 @@ export const LINKS = {
   github: "https://github.com/Forest-Road-Company/forest-road-vault",
 } as const;
 
+export const etherscan = (address: string) => `https://etherscan.io/address/${address}`;
+
+export const USDFR_ADDRESS = "0xcC07e7c4E5E35AFFD47b351E420A22C667D7f83d";
+
 export const SUPPLY = {
   usdfrSupply: 2_113_660.8,
   backingValue: 2_114_569.85,
@@ -27,12 +31,14 @@ export const SUPPLY = {
 
 export const RESERVES = {
   address: "0x8317…dD48",
+  fullAddress: "0x8317736611B542DDb4A820fE344b621A904BdD48",
   idleReserve: 113_640.8,
   deployedPrincipal: 2_001_328.28,
 } as const;
 
 export const VAULT = {
   address: "0xAF55…E234",
+  fullAddress: "0xAF559d1D59B33ca4b950AB2091372Af8a773E234",
   stakedAssets: 356_776.28,
   sharesOutstanding: 355_686.61,
   exchangeRate: 1.002984,
@@ -44,6 +50,7 @@ export const VAULT = {
 
 export const BOOK = {
   address: "0xe562…4F7d",
+  fullAddress: "0xe5621a5c6760dbCd76AC94012769a2d604844F7d",
   facilities: 5,
   exposure: 2_001_328.28,
   performingYield: 16.74,

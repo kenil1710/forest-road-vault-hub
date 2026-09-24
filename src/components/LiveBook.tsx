@@ -9,30 +9,42 @@ import {
   RESERVES,
   REVENUE,
   SNAPSHOT,
+  etherscan,
   SUPPLY,
+  USDFR_ADDRESS,
   VAULT,
 } from "@/lib/data";
 import { num, pct, usd } from "@/lib/format";
 import { Card, CardLabel, Chip, ExternalLink, Row, Section, Stat, StatGrid, YieldNote } from "./ui";
 
-function Addr({ children }: { children: string }) {
-  return <span className="font-mono text-[11px] text-muted">{children}</span>;
+function Addr({ children, full }: { children: string; full?: string }) {
+  if (!full) return <span className="font-mono text-[11px] text-muted">{children}</span>;
+  return (
+    <ExternalLink
+      href={etherscan(full)}
+      className="font-mono text-[11px] text-muted underline decoration-line-2 underline-offset-2 transition-colors hover:text-green"
+    >
+      {children} ↗
+    </ExternalLink>
+  );
 }
 
 function Panel({
   title,
   address,
+  fullAddress,
   children,
 }: {
   title: string;
   address?: string;
+  fullAddress?: string;
   children: React.ReactNode;
 }) {
   return (
     <Card className="p-5">
       <div className="mb-2 flex items-baseline justify-between gap-3">
         <h3 className="text-[14px] font-bold text-bright">{title}</h3>
-        {address && <Addr>{address}</Addr>}
+        {address && <Addr full={fullAddress}>{address}</Addr>}
       </div>
       <dl>{children}</dl>
     </Card>
@@ -70,7 +82,16 @@ export function LiveBook() {
     >
       {/* Backing */}
       <StatGrid className="reveal grid-cols-1 sm:grid-cols-3">
-        <Stat label="USDfr supply" value={num(SUPPLY.usdfrSupply, 1)} sub="~$2.1M outstanding" />
+        <Stat
+          label="USDfr supply"
+          value={num(SUPPLY.usdfrSupply, 1)}
+          sub={
+            <>
+              ~$2.1M outstanding ·{" "}
+              <Addr full={USDFR_ADDRESS}>{`${USDFR_ADDRESS.slice(0, 6)}…${USDFR_ADDRESS.slice(-4)}`}</Addr>
+            </>
+          }
+        />
         <Stat label="Backing value" value={usd(SUPPLY.backingValue)} sub="~$2.1M" tone="green" />
         <Stat
           label="Backing invariant"
@@ -80,7 +101,7 @@ export function LiveBook() {
       </StatGrid>
 
       <div className="reveal mt-4 grid gap-4 lg:grid-cols-3">
-        <Panel title="Reserves" address={RESERVES.address}>
+        <Panel title="Reserves" address={RESERVES.address} fullAddress={RESERVES.fullAddress}>
           <Row label="Idle stablecoin reserve" value={usd(RESERVES.idleReserve)} />
           <Row label="Deployed principal" value={usd(RESERVES.deployedPrincipal)} />
           <div className="pt-3">
@@ -95,7 +116,7 @@ export function LiveBook() {
           </div>
         </Panel>
 
-        <Panel title="The Book" address={BOOK.address}>
+        <Panel title="The Book" address={BOOK.address} fullAddress={BOOK.fullAddress}>
           <Row label="Facilities originated" value={BOOK.facilities} />
           <Row label="Book exposure" value={usd(BOOK.exposure)} />
           <Row label="Performing weighted yield" value={pct(BOOK.performingYield)} tone="green" />
@@ -108,7 +129,7 @@ export function LiveBook() {
           <Row label="Non-performing principal" value={usd(BOOK.nonPerformingPrincipal, 0)} />
         </Panel>
 
-        <Panel title="sUSDfr Vault" address={VAULT.address}>
+        <Panel title="sUSDfr Vault" address={VAULT.address} fullAddress={VAULT.fullAddress}>
           <Row label="Staked assets" value={`${num(VAULT.stakedAssets)} USDfr`} />
           <Row label="Shares outstanding" value={num(VAULT.sharesOutstanding)} />
           <Row label="Fee-net exchange rate" value={VAULT.exchangeRate} tone="green" />
@@ -260,7 +281,7 @@ export function LiveBook() {
       <p className="reveal mt-6 flex flex-wrap items-center gap-2 text-[12px] text-muted">
         <Chip>{SNAPSHOT.network}</Chip>
         As of block {SNAPSHOT.block.toLocaleString("en-US")} · {SNAPSHOT.date}. Contract addresses
-        shown truncated as published.
+        link to Etherscan where the full address is published.
       </p>
     </Section>
   );
