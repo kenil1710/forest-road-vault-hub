@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Forest Road Vault — Community Hub
 
-## Getting Started
+Community-built yield calculator and protocol resource for Forest Road Vault. Not affiliated with Forest Road Asset Management.
 
-First, run the development server:
+**Live site:** https://forest-road-vault-hub.vercel.app
+
+## What it includes
+
+- **Yield calculator**: estimate sUSDfr earnings from the live book's contractual yield and the published fee schedule, with position details, a hold timeline and a fee breakdown
+- **Protocol explainer**: USDfr vs. sUSDfr, the five-step flow, continuous accrual, PIK interest and the epoch redemption queue
+- **Live transparency data**: backing, reserves, the book, vault state, loss cascade, credit history, redemption queue, protocol revenue and fee schedule
+- **Safety & invariants**: test coverage, the nine core invariants, governance roles, review history and accepted residuals
+- **Risk breakdown**: credit, liquidity, smart contract, attester, related-party, regulatory, infrastructure and early-stage risk
+- **FAQ**
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router)
+- TypeScript
+- Tailwind CSS
+- Deployed on Vercel
+
+## Data source
+
+All figures come from [forestroadvault.com/transparency](https://forestroadvault.com/transparency) and [forestroadvault.com/docs](https://forestroadvault.com/docs), snapshotted at Ethereum mainnet block **26,047,245** (Sept 24, 2026). They live in [`src/lib/data.ts`](src/lib/data.ts). To refresh the site, update that file.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Disclaimer
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This is an independent community tool. It is **not affiliated with Forest Road Asset Management** and is **not financial advice**. The 16.74% figure is the book's contractual yield — what borrowers owe — not a guaranteed sUSDfr return. Yield is variable, and depositing can result in loss of principal. Always verify figures on the official site.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Links
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Official site: https://forestroadvault.com
+- Discord: https://discord.com/invite/swXQWqrAgf
+- X: https://x.com/forestroadvault
+- GitHub: https://github.com/Forest-Road-Company/forest-road-vault
