@@ -6,7 +6,6 @@ export const SNAPSHOT = {
   network: "Ethereum mainnet",
   block: 26_047_245,
   date: "Sept 24, 2026",
-  historyObservedDays: 4,
 } as const;
 
 export const LINKS = {
@@ -24,13 +23,13 @@ export const etherscan = (address: string) => `https://etherscan.io/address/${ad
 
 export const USDFR_ADDRESS = "0xcC07e7c4E5E35AFFD47b351E420A22C667D7f83d";
 
-// Supply and backing were only given rounded (3.1mm) for this snapshot, so the
-// UI shows them as "~3.1M". Replace with the exact figures when available.
+// The transparency page shows supply and backing only as "3.1mm" for this
+// snapshot. Backing is derived as idle reserve + deployed principal; supply is
+// ≤ backing by invariant, so the calculator uses the derived figure for it too.
 export const SUPPLY = {
-  usdfrSupply: 3_100_000,
-  backingValue: 3_100_000,
-  approximate: true,
-  display: "~3.1M",
+  published: "3.1mm",
+  usdfrSupply: 3_131_364,
+  backingValue: 128_842.89 + 3_002_521.21, // 3,131,364.10
 } as const;
 
 export const RESERVES = {
@@ -167,9 +166,8 @@ export const REVIEWS = [
 export const RESIDUALS = [
   "No top-tier audit yet (no Trail of Bits, OpenZeppelin or CertiK engagement).",
   "Module-wide Guardian pause proven on a fork only — no live Safe drill yet.",
-  "No synthetic loan originated on mainnet for acceptance; the first real facility needs actual documents.",
   "Queue canary (9.99 sUSDfr) not yet settled — eligible Oct 12, 2026 after the 21-day cooldown.",
   "sGROVE backstop is unfunded ($0 live callable reserve).",
-  "Only 4 days of on-chain history observed.",
+  "Limited operating history — live on mainnet since September 2026.",
   "Keeper infrastructure runs on shared hosting.",
 ] as const;

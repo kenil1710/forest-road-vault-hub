@@ -1,4 +1,5 @@
-import { INVARIANTS, RESIDUALS, REVIEWS, ROLES, TESTS } from "@/lib/data";
+import { BOOK, CREDIT, INVARIANTS, RESIDUALS, REVIEWS, ROLES, TESTS } from "@/lib/data";
+import { pct } from "@/lib/format";
 import { Card, CardLabel, Chip, Section } from "./ui";
 
 export function Safety() {
@@ -108,9 +109,10 @@ export function Safety() {
           <Chip tone="amber">Not yet done</Chip>
         </div>
         <p className="mt-1 text-[13px] text-muted">
-          From the V2 deployment status (updated Sept 21, 2026). V2 is live and open for controlled,
-          KYC-gated deposits; the funded canary covered minting, transfer, sUSDfr deposit, direct
-          redemption and queue entry, and supply equalled backing afterwards.
+          V2 is live and open for controlled, KYC-gated deposits, with {BOOK.facilities} facilities
+          originated on mainnet, $3M+ deployed and a {pct(CREDIT.netDefaultRate)} default rate. The
+          funded canary covered minting, transfer, sUSDfr deposit, direct redemption and queue entry,
+          and supply equalled backing afterwards. These items are still outstanding:
         </p>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           {RESIDUALS.map((r) => (

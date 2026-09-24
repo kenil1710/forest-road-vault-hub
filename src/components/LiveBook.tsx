@@ -85,15 +85,20 @@ export function LiveBook() {
       <StatGrid className="reveal grid-cols-1 sm:grid-cols-3">
         <Stat
           label="USDfr supply"
-          value={SUPPLY.display}
+          value={`~${num(SUPPLY.usdfrSupply, 0)}`}
           sub={
             <>
-              USDfr outstanding ·{" "}
+              Published as {SUPPLY.published}; ≤ backing ·{" "}
               <Addr full={USDFR_ADDRESS}>{`${USDFR_ADDRESS.slice(0, 6)}…${USDFR_ADDRESS.slice(-4)}`}</Addr>
             </>
           }
         />
-        <Stat label="Backing value" value={`~$${SUPPLY.display.slice(1)}`} sub="Rounded, as published" tone="green" />
+        <Stat
+          label="Backing value"
+          value={usd(SUPPLY.backingValue)}
+          sub={`Idle + deployed (derived); published as $${SUPPLY.published}`}
+          tone="green"
+        />
         <Stat
           label="Backing invariant"
           value="supply ≤ backing"

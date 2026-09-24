@@ -27,7 +27,7 @@ const RISKS: { title: string; level: Level; body: string }[] = [
   {
     title: "Early stage",
     level: "Elevated",
-    body: "Only 4 days of on-chain history have been observed, no synthetic loan was originated on mainnet for acceptance, and the Guardian pause has only been drilled on a fork.",
+    body: "The protocol is early stage with limited operating history. 7 facilities are live, but the track record is short, and the module-wide Guardian pause has only been drilled on a fork, with no live Safe drill yet.",
   },
   {
     title: "Oracle / attester risk",

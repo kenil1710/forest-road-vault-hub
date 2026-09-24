@@ -51,7 +51,8 @@ export function Calculator() {
   const shares = amount / VAULT.exchangeRate;
   const poolShare = amount > 0 ? amount / (VAULT.stakedAssets + amount) : 0;
   const supplyShare = amount > 0 ? amount / (SUPPLY.usdfrSupply + amount) : 0;
-  const proRataIncome = supplyShare * BOOK.grossIncomeRunRate;
+  const proRataIncome =
+    supplyShare * BOOK.grossIncomeRunRate * (1 - YIELD.interestFee) * (1 - YIELD.performanceFee);
 
   const fees = [
     { label: "Gross performing weighted yield", value: YIELD.gross, delta: null, strong: true },
@@ -149,9 +150,9 @@ export function Calculator() {
               <PosRow label="sUSDfr shares received" value={num(shares, 4)} />
               <PosRow label="Share of staked pool" value={pct(poolShare * 100, 4)} />
               <PosRow
-                label="Pro-rata gross book income"
+                label="Pro-rata book income (est. net)"
                 value={`${usd(proRataIncome)}/yr`}
-                hint={`Your share of USDfr supply × ${num(BOOK.grossIncomeRunRate)} USDfr/yr run-rate`}
+                hint={`Share of USDfr supply (incl. your deposit) × ${num(BOOK.grossIncomeRunRate)} USDfr/yr run-rate × 0.9 × 0.9`}
               />
             </dl>
           </div>
