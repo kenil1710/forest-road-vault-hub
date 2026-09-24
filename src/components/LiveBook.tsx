@@ -52,7 +52,8 @@ function Panel({
 }
 
 export function LiveBook() {
-  const idleShare = (RESERVES.idleReserve / SUPPLY.backingValue) * 100;
+  const idleShare =
+    (RESERVES.idleReserve / (RESERVES.idleReserve + RESERVES.deployedPrincipal)) * 100;
   const revenueParts = [
     { label: "Origination fees", value: REVENUE.origination, color: "bg-green" },
     { label: "Performance fees", value: REVENUE.performance, color: "bg-purple" },
@@ -84,15 +85,15 @@ export function LiveBook() {
       <StatGrid className="reveal grid-cols-1 sm:grid-cols-3">
         <Stat
           label="USDfr supply"
-          value={num(SUPPLY.usdfrSupply, 1)}
+          value={SUPPLY.display}
           sub={
             <>
-              ~$2.1M outstanding ·{" "}
+              USDfr outstanding ·{" "}
               <Addr full={USDFR_ADDRESS}>{`${USDFR_ADDRESS.slice(0, 6)}…${USDFR_ADDRESS.slice(-4)}`}</Addr>
             </>
           }
         />
-        <Stat label="Backing value" value={usd(SUPPLY.backingValue)} sub="~$2.1M" tone="green" />
+        <Stat label="Backing value" value={`~$${SUPPLY.display.slice(1)}`} sub="Rounded, as published" tone="green" />
         <Stat
           label="Backing invariant"
           value="supply ≤ backing"

@@ -1,11 +1,11 @@
 // Verified from forestroadvault.com/transparency and /docs.
-// Snapshot: Ethereum mainnet, block 26,040,984 (Sept 23, 2026).
+// Snapshot: Ethereum mainnet, block 26,047,245 (Sept 24, 2026).
 // Every figure here is copied verbatim — do not round at the source.
 
 export const SNAPSHOT = {
   network: "Ethereum mainnet",
-  block: 26_040_984,
-  date: "Sept 23, 2026",
+  block: 26_047_245,
+  date: "Sept 24, 2026",
   historyObservedDays: 4,
 } as const;
 
@@ -24,39 +24,43 @@ export const etherscan = (address: string) => `https://etherscan.io/address/${ad
 
 export const USDFR_ADDRESS = "0xcC07e7c4E5E35AFFD47b351E420A22C667D7f83d";
 
+// Supply and backing were only given rounded (3.1mm) for this snapshot, so the
+// UI shows them as "~3.1M". Replace with the exact figures when available.
 export const SUPPLY = {
-  usdfrSupply: 2_113_660.8,
-  backingValue: 2_114_569.85,
+  usdfrSupply: 3_100_000,
+  backingValue: 3_100_000,
+  approximate: true,
+  display: "~3.1M",
 } as const;
 
 export const RESERVES = {
   address: "0x8317…dD48",
   fullAddress: "0x8317736611B542DDb4A820fE344b621A904BdD48",
-  idleReserve: 113_640.8,
-  deployedPrincipal: 2_001_328.28,
+  idleReserve: 128_842.89,
+  deployedPrincipal: 3_002_521.21,
 } as const;
 
 export const VAULT = {
   address: "0xAF55…E234",
   fullAddress: "0xAF559d1D59B33ca4b950AB2091372Af8a773E234",
-  stakedAssets: 356_776.28,
-  sharesOutstanding: 355_686.61,
-  exchangeRate: 1.002984,
-  perfFeeNavRate: 1.003063,
-  highWaterMark: 1.002271,
-  lastFeeCheckpoint: "2026-09-23T07:05:59.000Z",
+  stakedAssets: 810_544.35,
+  sharesOutstanding: 807_100.01,
+  exchangeRate: 1.004225,
+  perfFeeNavRate: 1.004267,
+  highWaterMark: 1.003847,
+  lastFeeCheckpoint: "2026-09-24T05:45:23.000Z",
   decimals: 24,
 } as const;
 
 export const BOOK = {
   address: "0xe562…4F7d",
   fullAddress: "0xe5621a5c6760dbCd76AC94012769a2d604844F7d",
-  facilities: 5,
-  exposure: 2_001_328.28,
+  facilities: 7,
+  exposure: 3_002_521.21,
   performingYield: 16.74,
   allOutstandingYield: 16.74,
-  performingPrincipal: 2_001_328.28,
-  grossIncomeRunRate: 335_221.63,
+  performingPrincipal: 3_002_521.21,
+  grossIncomeRunRate: 502_921.45,
   nonPerformingPrincipal: 0,
 } as const;
 
@@ -64,7 +68,7 @@ export const CREDIT = {
   address: "0xD08F…7263",
   netDefaultRate: 0,
   netWrittenOff: 0,
-  cumulativeFunded: 2_000_020,
+  cumulativeFunded: 3_000_020,
   bySector: [
     { name: "Media & entertainment", rate: null },
     { name: "Renewable energy", rate: 0 },
@@ -74,10 +78,10 @@ export const CREDIT = {
 
 export const REVENUE = {
   address: "0xED7F…b063",
-  total: 40_089.9729,
-  origination: 40_000.3999,
+  total: 60_191.6076,
+  origination: 60_000.3999,
   interest: 0,
-  performance: 89.5729,
+  performance: 191.2076,
   management: 0,
 } as const;
 
@@ -97,15 +101,15 @@ export const BACKSTOP = {
 export const QUEUE = {
   address: "0xa3a9…d1f8",
   epoch: 1,
-  status: "ended · head eligible in ~18d",
-  queuedShares: 11.0875,
-  settlementLiquidity: 1_897.8,
+  status: "ended · head eligible in 17d 18h",
+  queuedShares: 69.5433,
+  settlementLiquidity: 2_151.67,
   cooldownDays: 21,
 } as const;
 
 export const CURATOR = {
   firstLoss: 500_001,
-  pctOfLoans: 24.98,
+  pctOfLoans: 16.65,
 } as const;
 
 // Illustrative fee math. The real performance fee is taken above the HWM via

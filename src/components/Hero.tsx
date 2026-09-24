@@ -49,7 +49,7 @@ export function Hero() {
             sub="Performing weighted — not an APY"
             tone="green"
           />
-          <Stat label="Deployed" value="$2.1M" sub="In performing facilities" />
+          <Stat label="Deployed" value="$3.0M" sub="In performing facilities" />
           <Stat
             label="Net default rate"
             value={pct(CREDIT.netDefaultRate)}

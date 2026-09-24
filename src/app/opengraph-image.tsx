@@ -7,9 +7,9 @@ export const contentType = "image/png";
 
 const stats = [
   ["16.74%", "Book yield (contractual)"],
-  ["$2.1M", "Deployed"],
+  ["$3.0M", "Deployed"],
   ["0.00%", "Net default rate"],
-  ["5", "Facilities"],
+  ["7", "Facilities"],
 ];
 
 export default function Image() {
@@ -93,7 +93,7 @@ export default function Image() {
           </div>
           <div style={{ fontSize: 18, color: "#6e829c" }}>
             Not affiliated with Forest Road Asset Management · Yield is variable, not guaranteed ·
-            Block 26,040,984
+            Block 26,047,245
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ const RISKS: { title: string; level: Level; body: string }[] = [
   {
     title: "Backstop gap",
     level: "High",
-    body: "The sGROVE backstop currently holds $0. Today the only layer ahead of depositors is $500,001 of curator first-loss capital (24.98% of loans).",
+    body: "The sGROVE backstop currently holds $0. Today the only layer ahead of depositors is $500,001 of curator first-loss capital (16.65% of loans).",
   },
   {
     title: "Liquidity risk",
